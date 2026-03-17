@@ -44,7 +44,7 @@ export function FeatureSteps({
     <div className={cn("p-8 md:p-12", className)}>
       <div className="max-w-7xl mx-auto w-full">
         {title && (
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-center">
+          <h2 className="site-section-title mb-10 text-center text-white">
             {title}
           </h2>
         )}
@@ -88,7 +88,7 @@ export function FeatureSteps({
                 <div className="flex-1">
                   <h3
                     className={cn(
-                      "text-xl md:text-2xl font-semibold transition-colors duration-300",
+                    "text-lg md:text-xl font-semibold transition-colors duration-300",
                       isActive ? "text-white" : "text-zinc-200",
                     )}
                   >
@@ -96,7 +96,7 @@ export function FeatureSteps({
                   </h3>
                   <p
                     className={cn(
-                      "text-sm md:text-lg transition-colors duration-300",
+                      "site-card-text transition-colors duration-300",
                       isActive ? "text-zinc-100" : "text-muted-foreground",
                     )}
                   >

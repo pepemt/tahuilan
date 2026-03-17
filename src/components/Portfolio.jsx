@@ -37,13 +37,13 @@ export default function Portfolio() {
     >
       <motion.div className="max-w-7xl mx-auto" variants={sectionVariants}>
         <motion.div className="text-center mb-16" variants={sectionHeaderVariants}>
-          <span className="inline-flex items-center rounded-full border border-cyan-200/45 bg-cyan-200/12 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100 shadow-[0_0_24px_rgba(56,189,248,0.35)]">
+          <span className="site-eyebrow">
             {t("portfolio.badge")}
           </span>
-          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-white md:text-4xl bg-gradient-to-br from-white via-cyan-100/90 to-cyan-200 bg-clip-text text-transparent">
+          <h2 className="site-section-title mt-4 text-white bg-gradient-to-br from-white via-cyan-100/90 to-cyan-200 bg-clip-text text-transparent">
             {t("portfolio.title")}
           </h2>
-          <p className="text-zinc-300 mt-5 max-w-2xl mx-auto">
+          <p className="site-section-description mt-5 max-w-2xl mx-auto">
             {t("portfolio.description")}
           </p>
         </motion.div>

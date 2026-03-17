@@ -127,3 +127,25 @@
     @apply font-sans scroll-smooth;
     }
 }
+
+@layer components {
+  .site-eyebrow {
+    @apply inline-flex items-center rounded-full border border-cyan-200/45 bg-cyan-200/12 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100 shadow-[0_0_24px_rgba(56,189,248,0.35)];
+  }
+
+  .site-section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.03em];
+  }
+
+  .site-section-description {
+    @apply text-sm leading-7 text-zinc-300 md:text-base;
+  }
+
+  .site-card-title {
+    @apply text-lg font-semibold;
+  }
+
+  .site-card-text {
+    @apply text-sm leading-6;
+  }
+}

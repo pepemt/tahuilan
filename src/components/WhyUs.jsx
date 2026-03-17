@@ -44,15 +44,15 @@ export default function WhyUs() {
     >
       <motion.div className="mx-auto max-w-6xl" variants={containerVariants}>
         <motion.div className="text-center mb-20" variants={itemVariants}>
-          <span className="inline-flex items-center rounded-full border border-cyan-200/50 bg-cyan-200/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100 shadow-[0_0_24px_rgba(56,189,248,0.45)] transition-all duration-300 hover:border-cyan-200/80 hover:bg-cyan-200/25 hover:text-cyan-50 hover:shadow-[0_0_30px_rgba(56,189,248,0.6)]">
+          <span className="site-eyebrow border-cyan-200/50 bg-cyan-200/15 shadow-[0_0_24px_rgba(56,189,248,0.45)] transition-all duration-300 hover:border-cyan-200/80 hover:bg-cyan-200/25 hover:text-cyan-50 hover:shadow-[0_0_30px_rgba(56,189,248,0.6)]">
             {t("whyUs.badge")}
           </span>
 
-          <h2 className="mx-auto mt-4 max-w-3xl text-3xl md:text-4xl lg:text-5xl bg-gradient-to-br from-white via-cyan-100/90 to-cyan-200 bg-clip-text text-transparent">
+          <h2 className="site-section-title mx-auto mt-4 max-w-3xl bg-gradient-to-br from-white via-cyan-100/90 to-cyan-200 bg-clip-text text-transparent">
             {t("whyUs.title")}
           </h2>
 
-          <p className="mx-auto mt-5 max-w-xl leading-relaxed text-zinc-300">
+          <p className="site-section-description mx-auto mt-5 max-w-xl">
             {t("whyUs.description")}
           </p>
         </motion.div>
@@ -72,11 +72,11 @@ export default function WhyUs() {
               </div>
 
               <div className="relative">
-                <h3 className="text-white font-medium mb-1 transition-colors duration-300 group-hover:text-cyan-100">
+                <h3 className="site-card-title text-white mb-1 transition-colors duration-300 group-hover:text-cyan-100">
                   {r.title}
                 </h3>
 
-                <p className="text-sm leading-relaxed text-zinc-400 transition-colors duration-300 group-hover:text-zinc-300">
+                <p className="site-card-text text-zinc-300 transition-colors duration-300 group-hover:text-zinc-200">
                   {r.description}
                 </p>
               </div>

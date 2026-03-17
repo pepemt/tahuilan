@@ -54,13 +54,13 @@ export default function Contact() {
 
       <motion.div className="max-w-6xl mx-auto relative z-10" variants={sectionVariants}>
         <motion.div className="text-center mb-10" variants={itemVariants}>
-          <span className="inline-flex items-center rounded-full border border-cyan-200/45 bg-cyan-200/12 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100 shadow-[0_0_24px_rgba(56,189,248,0.35)] transition-all duration-300">
+          <span className="site-eyebrow transition-all duration-300">
             {t("contact.badge")}
           </span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white md:text-4xl bg-gradient-to-br from-white via-cyan-100/90 to-cyan-200 bg-clip-text text-transparent">
+          <h2 className="site-section-title mt-3 text-white bg-gradient-to-br from-white via-cyan-100/90 to-cyan-200 bg-clip-text text-transparent">
             {t("contact.title")}
           </h2>
-          <p className="text-zinc-200 mt-5 max-w-2xl mx-auto">
+          <p className="site-section-description mt-5 max-w-2xl mx-auto">
             {t("contact.subtitle")}
           </p>
         </motion.div>
@@ -118,10 +118,10 @@ export default function Contact() {
             variants={itemVariants}
           >
             <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-8 backdrop-blur-xl">
-              <h3 className="text-white font-semibold text-lg mb-4">
+              <h3 className="site-card-title text-white mb-4">
                 {t("contact.panelTitle")}
               </h3>
-              <p className="text-zinc-200 text-sm leading-relaxed mb-6">
+              <p className="site-card-text text-zinc-300 mb-6">
                 {t("contact.panelDescription")}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

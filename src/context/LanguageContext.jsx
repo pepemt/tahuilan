@@ -89,35 +89,189 @@ const translations = {
     portfolio: {
       badge: "Our Work",
       title: "Our Portfolio",
-      description:
-        "Some examples of projects and experiences we build for real businesses.",
+      description: "A gym coach landing page designed to convert visitors into members.",
       typeLabel: "Type",
       servicesLabel: "Services",
+      openCaseLabel: "View Case Study",
+      backToPortfolio: "Back to Portfolio",
+      builtFor: "Built for",
+      pages: {
+        gymCoach: {
+          eyebrow: "Featured case study",
+          type: "Gym Coach",
+          services: ["Branding", "Landing page", "Booking", "SEO"],
+          heroTitle: "From local lead to paid member",
+          heroDescription:
+            "A gym coach landing page redesigned to capture leads faster, build trust instantly, and convert more visitors into booked sessions.",
+          challengeHeading: "Built to solve real friction",
+          challengeDescription:
+            "From no progress and unstable routines to better habits and consistent results.",
+          whatWeBuilt: [
+            {
+              title: "Conversion-first hero",
+              description:
+                "Clear offer blocks, value-first headline, and one action per section.",
+            },
+            {
+              title: "Trust-building proof",
+              description:
+                "Visible social proof, success metrics, and concise client outcomes.",
+            },
+            {
+              title: "Frictionless booking",
+              description:
+                "Simple CTA flow designed to remove hesitation before signup.",
+            },
+          ],
+          whatWeBuiltTitle: "What we built",
+          plansHeading: "Choose the right level of support",
+          processHeading: "A clear system from signup to results",
+          processFallback: "Process details coming soon.",
+          aboutSummary:
+            "A modern coaching program with structured routines, nutrition, and weekly adjustments designed to help you stay consistent and improve every week.",
+          ctaEyebrow: "Ready",
+          results: [
+            { label: "Lead quality", value: "+73%" },
+            { label: "Landing Conversion", value: "+41%" },
+            { label: "Session Bookings", value: "+55%" },
+          ],
+          resultsTitle: "Results",
+          ctaLabel: "Talk about your project",
+          ctaUrl: "/#contact",
+          challengeTitle: "Does this sound familiar?",
+          challenges: [
+            {
+              title: "No visible progress",
+              description:
+                "You train hard but the mirror and your results are not showing the effort.",
+            },
+            {
+              title: "Plans are not flexible",
+              description:
+                "Most routines ignore your schedule, workday, and lifestyle.",
+            },
+            {
+              title: "You lose momentum",
+              description:
+                "You start motivated, then routines become hard to keep up with.",
+            },
+            {
+              title: "You need a clear method",
+              description:
+                "You have info overload and no practical structure for action.",
+            },
+          ],
+          differenceTitle: "The difference",
+          differenceLeftTitle: "Trying alone",
+          differenceLeftItems: [
+            "No structured progression and inconsistent routine changes.",
+            "Random nutrition with no real alignment to goals.",
+            "Slow progress and frequent drop-offs.",
+            "Too many weeks lost with no measurable improvement.",
+          ],
+          differenceRightTitle: "With coaching",
+          differenceRightItems: [
+            "A plan based on your level, objective and timeline.",
+            "Nutrition adapted to your real life and routines.",
+            "Weekly tracking and adjustments.",
+            "Visible progress from day one with a clear path.",
+          ],
+          aboutTitle: "Who is behind the plan",
+          aboutText:
+            "A personal coach focused on consistent progress: training, nutrition and follow-up designed to keep your goals realistic and measurable.",
+          aboutBullets: [
+            "Personalized routines with real progression.",
+            "Weekly check-ins and plan adjustments.",
+            "Simple structure to stay consistent and accountable.",
+          ],
+          plansTitle: "Andoni-style coaching program",
+          plans: [
+            {
+              title: "Quarterly Program",
+              price: "€287",
+              meta: "€95.67 per month",
+              badge: "Most flexible",
+              highlight: "Plan ready in 48h",
+              features: [
+                "Personalized training routine",
+                "Weekly progress review",
+                "Nutrition plan adapted to your needs",
+                "Daily WhatsApp support",
+                "Exclusive client guide",
+              ],
+            },
+            {
+              title: "Annual Program",
+              price: "€997",
+              meta: "€83.08 per month",
+              badge: "Best value",
+              highlight: "Save €151 vs quarterly",
+              features: [
+                "Everything in quarterly",
+                "Long-term momentum tracking",
+                "Priority feedback window",
+                "Priority monthly check-ins",
+              ],
+            },
+          ],
+          processTitle: "How it works",
+          processSteps: [
+            {
+              title: "Step 1 — Complete intake form",
+              text: "Share your goals, schedule, and current habits. This helps us define your starting point.",
+            },
+            {
+              title: "Step 2 — Quick WhatsApp interview",
+              text: "We clarify doubts and align expectations before designing.",
+            },
+            {
+              title: "Step 3 — Build your plan",
+              text: "A complete workout and nutrition plan is created uniquely for you.",
+            },
+            {
+              title: "Step 4 — Delivery in 48h",
+              text: "You receive your plan ready to start with an easy onboarding flow.",
+            },
+            {
+              title: "Step 5 — We grow together",
+              text: "Weekly progress check and constant refinements to keep results moving.",
+            },
+          ],
+          faqTitle: "Common questions",
+          faq: [
+            {
+              q: "How long before I see results?",
+              a: "Most clients notice first visible changes in 4 to 6 weeks, with better habits from week one.",
+            },
+            {
+              q: "Do I need to have gym experience?",
+              a: "No. The program adapts to beginners and advanced users.",
+            },
+            {
+              q: "What if I have food restrictions?",
+              a: "The plan is built around your preferences, restrictions, and daily routine.",
+            },
+            {
+              q: "Can I contact you anytime?",
+              a: "Yes, direct WhatsApp support is included for timely adjustments.",
+            },
+          ],
+          ctaTitle: "Stop overthinking.",
+          ctaText:
+            "Enrollment is limited for personalized support. Let’s map your next 12 weeks and get moving.",
+          ctaPrimaryLabel: "Start my plan",
+          ctaPrimaryUrl: "/#contact",
+          ctaSecondaryLabel: "Book a call",
+          ctaSecondaryUrl: "https://wa.me/qr/CC5HA3I4QH4SP1",
+        },
+      },
       slides: [
         {
-          title: "UI/UX Design",
+          type: "Gym Coach",
+          services: ["Branding", "Landing page", "Booking", "SEO"],
+          title: "Gym Coach Landing Page",
           description:
-            "We build a car rental platform focused on user experience, security, and data privacy.",
-        },
-        {
-          title: "Blockchain Wallet",
-          description:
-            "We build a blockchain wallet for the masses, focused on security and usability.",
-        },
-        {
-          title: "Ecommerce Store",
-          description:
-            "We build an ecommerce store focused on performance, trust, and user experience.",
-        },
-        {
-          title: "SaaS Platform",
-          description:
-            "We build a SaaS platform focused on user experience, security, and privacy.",
-        },
-        {
-          title: "SEO Optimization",
-          description:
-            "We optimize digital experiences to improve discoverability and conversion.",
+            "A performance-driven landing page with clear offers, social proof, and lead capture for local training clients.",
         },
       ],
     },
@@ -267,34 +421,189 @@ const translations = {
       badge: "Nuestro trabajo",
       title: "Nuestro portafolio",
       description:
-        "Algunos ejemplos de proyectos y experiencias que construimos para negocios reales.",
+        "Una landing page para coach de gimnasio diseñada para convertir visitantes en clientes.",
       typeLabel: "Tipo",
       servicesLabel: "Servicios",
+      openCaseLabel: "Ver caso",
+      backToPortfolio: "Volver al portafolio",
+      builtFor: "Diseñado para",
+      pages: {
+        gymCoach: {
+          eyebrow: "Caso destacado",
+          type: "Coach de gimnasio",
+          services: ["Marca", "Landing page", "Reserva", "Nutrición"],
+          heroTitle: "De visitante a cliente recurrente",
+          heroDescription:
+            "Landing page para un coach de gimnasio enfocada en convertir leads con mayor velocidad y claridad, mostrando resultados y permitiendo reserva rápida.",
+          challengeHeading: "Diseñado para resolver puntos de fricción reales",
+          challengeDescription:
+            "De la rutina irregular y los resultados lentos a hábitos más consistentes y mejoras visibles.",
+          whatWeBuiltTitle: "Lo que construimos",
+          plansHeading: "Elige el nivel correcto de acompañamiento",
+          processHeading: "Un sistema claro desde el inicio hasta los resultados",
+          processFallback: "Detalles del proceso pronto.",
+          aboutSummary:
+            "Un programa de coaching moderno con rutinas estructuradas, nutrición y ajustes semanales para mantener constancia y mejorar cada semana.",
+          ctaEyebrow: "Listo",
+          whatWeBuilt: [
+            {
+              title: "Hero orientado a conversión",
+              description:
+                "Bloques de oferta claros, titular orientado a valor y una sola acción principal por sección.",
+            },
+            {
+              title: "Prueba social fuerte",
+              description:
+                "Prueba social visible, métricas de resultados y casos concretos para generar confianza.",
+            },
+            {
+              title: "Reservas más sencillas",
+              description:
+                "Un flujo de CTA claro para bajar fricción antes de agendar.",
+            },
+          ],
+          resultsTitle: "Resultados",
+          results: [
+            { label: "Calidad de leads", value: "+73%" },
+            { label: "Conversión de landing", value: "+41%" },
+            { label: "Reservas de sesiones", value: "+55%" },
+          ],
+          ctaLabel: "Háblanos de tu proyecto",
+          ctaUrl: "/#contact",
+          challengeTitle: "¿Te suena esto?",
+          challenges: [
+            {
+              title: "Entrenas sin ver cambios",
+              description:
+                "Haces esfuerzo pero la báscula y el espejo no muestran los avances esperados.",
+            },
+            {
+              title: "Plan poco flexible",
+              description:
+                "La mayoría de rutinas no se adapta a tu horario, energía y vida diaria.",
+            },
+            {
+              title: "Pierdes continuidad",
+              description:
+                "Empiezas con fuerza, pero a las pocas semanas la motivación baja.",
+            },
+            {
+              title: "Necesitas método, no motivación",
+              description:
+                "Tienes mucha información, pero no una estructura práctica para actuar.",
+            },
+          ],
+          differenceTitle: "La diferencia",
+          differenceLeftTitle: "Por tu cuenta",
+          differenceLeftItems: [
+            "Sin progresión real y sin ajustes semanales.",
+            "Nutrición desordenada o genérica.",
+            "Progreso lento y sensación de estancamiento.",
+            "Semanas perdidas que no se recuperan.",
+          ],
+          differenceRightTitle: "Con coaching",
+          differenceRightItems: [
+            "Plan diseñado a tu nivel, objetivo y disponibilidad.",
+            "Nutrición ajustada a tu rutina real.",
+            "Revisión semanal y cambios según tus resultados.",
+            "Progreso visible desde temprano con ruta clara.",
+          ],
+          aboutTitle: "Quién está detrás de tu plan",
+          aboutText:
+            "Coach personal con enfoque práctico: entrenamiento, nutrición y seguimiento para que avances de forma consistente.",
+          aboutBullets: [
+            "Rutinas personalizadas con progresión real.",
+            "Revisión semanal de resultados.",
+            "Estructura simple para mantener constancia.",
+          ],
+          plansTitle: "Plan de coaching para resultados",
+          plans: [
+            {
+              title: "Plan Trimestral",
+              price: "287 €",
+              meta: "95,67 €/mes",
+              badge: "Más flexible",
+              highlight: "Plan listo en 48h",
+              features: [
+                "Rutina personalizada",
+                "Revisión semanal",
+                "Nutrición adaptada a tus hábitos",
+                "Soporte por WhatsApp diario",
+                "Material y guía exclusiva",
+              ],
+            },
+            {
+              title: "Plan Anual",
+              price: "997 €",
+              meta: "83,08 €/mes",
+              badge: "Mejor valor",
+              highlight: "Ahorra 151 €",
+              features: [
+                "Todo lo del plan trimestral",
+                "Seguimiento de largo plazo",
+                "Ventanas de ajuste con prioridad",
+                "Revisión mensual intensiva",
+              ],
+            },
+          ],
+          processTitle: "Cómo funciona",
+          processSteps: [
+            {
+              title: "Paso 1 - Completa el formulario",
+              text: "Cuéntame tu objetivo, disponibilidad y hábitos para armar el plan correcto.",
+            },
+            {
+              title: "Paso 2 - Hablamos por WhatsApp",
+              text: "Resolvemos dudas y validamos la estrategia antes de empezar.",
+            },
+            {
+              title: "Paso 3 - Diseñamos tu plan",
+              text: "Creamos rutina y nutrición a medida para ti.",
+            },
+            {
+              title: "Paso 4 - Recibes todo en 48h",
+              text: "Plan listo, explicado y preparado para arrancar sin complicaciones.",
+            },
+            {
+              title: "Paso 5 - Avanzamos juntos",
+              text: "Revisión semanal para ajustes y mantenerte consistente.",
+            },
+          ],
+          faqTitle: "Preguntas frecuentes",
+          faq: [
+            {
+              q: "¿Cuándo notaré resultados?",
+              a: "Los primeros cambios suelen verse en 4 a 6 semanas. En la primera semana ya entras en acción con un plan claro.",
+            },
+            {
+              q: "¿Necesito experiencia previa?",
+              a: "No, el plan se adapta tanto si comienzas de cero como si ya tienes experiencia.",
+            },
+            {
+              q: "¿Y si no tolero algunos alimentos?",
+              a: "El plan se ajusta a intolerancias, preferencias y estilo de vida.",
+            },
+            {
+              q: "¿Puedo escribirte cuando tenga dudas?",
+              a: "Sí. Tienes soporte directo y seguimiento continuo.",
+            },
+          ],
+          ctaTitle: "Deja de pensarlo, empieza hoy",
+          ctaText:
+            "Las plazas son limitadas para mantener soporte personalizado. Te ayudamos a planear tus próximos 12 semanas.",
+          ctaPrimaryLabel: "Quiero mi plan",
+          ctaPrimaryUrl: "/#contact",
+          ctaSecondaryLabel: "Ver mis planes",
+          ctaSecondaryUrl: "https://wa.me/qr/CC5HA3I4QH4SP1",
+        },
+      },
       slides: [
         {
-          title: "Diseño UI/UX",
+          type: "Coach de gimnasio",
+          services: ["Marca", "Landing page", "Reserva", "Nutrición"],
+          title: "Landing de coach de gimnasio",
           description:
-            "Construimos una plataforma de renta de autos enfocada en experiencia de usuario, seguridad y privacidad.",
-        },
-        {
-          title: "Billetera Blockchain",
-          description:
-            "Construimos una billetera blockchain enfocada en seguridad y facilidad de uso.",
-        },
-        {
-          title: "Tienda Ecommerce",
-          description:
-            "Creamos una tienda en línea enfocada en rendimiento, confianza y experiencia de usuario.",
-        },
-        {
-          title: "Plataforma SaaS",
-          description:
-            "Construimos una plataforma SaaS con foco en experiencia de usuario, seguridad y privacidad.",
-        },
-        {
-          title: "SEO Optimization",
-          description:
-            "Optimizamos experiencias digitales para mejorar visibilidad y conversión.",
+            "Página de aterrizaje enfocada en resultados, prueba social y captación de leads para entrenamientos personalizados.",
         },
       ],
     },
@@ -365,6 +674,22 @@ const LanguageContext = createContext({
   translations,
 });
 
+function getInitialLang() {
+  if (typeof window === "undefined") return "en";
+
+  const urlLang = new URLSearchParams(window.location.search).get("lang");
+  if (urlLang === "en" || urlLang === "es") {
+    return urlLang;
+  }
+
+  const storedLang = localStorage.getItem(STORAGE_KEY);
+  if (storedLang === "en" || storedLang === "es") {
+    return storedLang;
+  }
+
+  return getBrowserLang();
+}
+
 function getBrowserLang() {
   if (typeof navigator === "undefined") return "en";
   const lang = navigator.language?.toLowerCase() || "";
@@ -372,19 +697,7 @@ function getBrowserLang() {
 }
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState("en");
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const storedLang = localStorage.getItem(STORAGE_KEY);
-    if (storedLang === "en" || storedLang === "es") {
-      setLang(storedLang);
-      return;
-    }
-
-    setLang(getBrowserLang());
-  }, []);
+  const [lang, setLang] = useState(getInitialLang);
 
   useEffect(() => {
     if (typeof window === "undefined") return;

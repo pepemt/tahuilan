@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { ChevronDown } from 'lucide-react';
 import DemoOne from './components/DemoOne';
 import Navbar from './components/Navbar';
@@ -7,8 +8,63 @@ import Portfolio from './components/Portfolio';
 import WhyUs from './components/WhyUs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { useLanguage } from './context/LanguageContext';
+import { portfolioProjects } from '@/data/portfolioProjects';
+import PortfolioCaseStudy from './pages/PortfolioCaseStudy';
+import GymCoachPortfolioPage from './pages/portfolio/gym-coach';
+
+const portfolioProjectRoutes = {
+  "gym-coach": GymCoachPortfolioPage,
+};
 
 function App() {
+  const { t } = useLanguage();
+
+  const normalizedPath = typeof window !== "undefined"
+    ? window.location.pathname.replace(/\/+$/, "") || "/"
+    : "/";
+
+  const translatedProjects = useMemo(
+    () =>
+      portfolioProjects.map((project, idx) => ({
+        ...project,
+        ...t(`portfolio.slides.${idx}`),
+      })),
+    [t],
+  );
+
+  const routeMatch = normalizedPath.match(/^\/portfolio\/([^/]+)$/);
+
+  const activeProject = useMemo(() => {
+    if (!routeMatch) return null;
+
+    const slug = routeMatch[1];
+
+    const projectIndex = translatedProjects.findIndex(
+      (project) =>
+        project.slug === slug ||
+        project.projectUrl?.replace(/\/+$/, "") === `/portfolio/${slug}`,
+    );
+
+    if (projectIndex === -1) return null;
+
+    return {
+      ...translatedProjects[projectIndex],
+      slug,
+    };
+  }, [routeMatch, translatedProjects]);
+
+  if (activeProject) {
+    const pageComponent = portfolioProjectRoutes[activeProject.slug];
+
+    if (pageComponent) {
+      const PortfolioProjectPage = pageComponent;
+      return <PortfolioProjectPage project={activeProject} />;
+    }
+
+    return <PortfolioCaseStudy project={activeProject} />;
+  }
+
   return (
     <>
       <Navbar />
@@ -36,6 +92,7 @@ function App() {
       <Footer />
     </>
   );
+
 }
 
 export default App;

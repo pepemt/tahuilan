@@ -59,15 +59,15 @@ export default function Process() {
     >
       <motion.div className="mx-auto max-w-6xl" variants={sectionVariants}>
         <motion.div className="mb-8 text-center" variants={sectionHeaderVariants}>
-          <span className="inline-flex items-center rounded-full border border-cyan-200/25 bg-cyan-200/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200 shadow-[0_0_20px_rgba(56,189,248,0.25)]">
+          <span className="site-eyebrow border-cyan-200/25 bg-cyan-200/10 shadow-[0_0_20px_rgba(56,189,248,0.25)]">
             {t("process.badge")}
           </span>
 
-          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.03em] md:text-4xl lg:text-5xl bg-gradient-to-br from-white via-cyan-100/90 to-cyan-200 bg-clip-text text-transparent">
+          <h2 className="site-section-title mx-auto mt-4 max-w-3xl bg-gradient-to-br from-white via-cyan-100/90 to-cyan-200 bg-clip-text text-transparent">
             {t("process.title")}
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-300 md:text-base">
+          <p className="site-section-description mx-auto mt-5 max-w-2xl">
             {t("process.description")}
           </p>
         </motion.div>

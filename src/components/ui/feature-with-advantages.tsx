@@ -40,16 +40,16 @@ function Feature() {
           variants={containerVariants}
         >
           <motion.div variants={itemVariants}>
-            <Badge className="inline-flex items-center rounded-full border border-cyan-200/50 bg-cyan-200/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100 shadow-[0_0_24px_rgba(56,189,248,0.45)] transition-all duration-300 hover:border-cyan-200/80 hover:bg-cyan-200/25 hover:text-cyan-50 hover:shadow-[0_0_30px_rgba(56,189,248,0.6)]">
+            <Badge className="site-eyebrow border-cyan-200/50 bg-cyan-200/15 shadow-[0_0_24px_rgba(56,189,248,0.45)] transition-all duration-300 hover:border-cyan-200/80 hover:bg-cyan-200/25 hover:text-cyan-50 hover:shadow-[0_0_30px_rgba(56,189,248,0.6)]">
               {t("services.badge")}
             </Badge>
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex max-w-2xl flex-col gap-3">
-            <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white md:text-5xl">
+            <h2 className="site-section-title text-white">
               {t("services.title")}
             </h2>
-            <p className="text-base leading-7 text-white/60 md:text-lg">
+            <p className="site-section-description text-white/70">
               {t("services.description")}
             </p>
           </motion.div>
@@ -80,10 +80,10 @@ function Feature() {
                     </motion.div>
 
                     <div className="flex flex-col gap-2">
-                      <p className="text-base font-medium text-white transition-colors duration-300 group-hover:text-white/95">
+                      <p className="site-card-title text-white transition-colors duration-300 group-hover:text-white/95">
                         {feature.title}
                       </p>
-                      <p className="text-sm leading-6 text-white/55 transition-colors duration-300 group-hover:text-white/70">
+                      <p className="site-card-text text-zinc-200 transition-colors duration-300 group-hover:text-white/80">
                         {feature.description}
                       </p>
                     </div>

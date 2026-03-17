@@ -16,7 +16,7 @@ export default function Navbar() {
   ];
 
   const toggleLanguage = () => {
-    setLang(lang === "en" ? "es" : "en");
+    setLang((current) => (current === "en" ? "es" : "en"));
   };
 
   const languageButtonLabel = lang === "en" ? "🇲🇽 ES" : "🇺🇸 EN";
