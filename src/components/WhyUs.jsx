@@ -1,64 +1,70 @@
 import { Palette, Zap, Smartphone, Sparkles, MessageCircle } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
-const reasons = [
-  {
-    icon: Palette,
-    title: "Modern Design",
-    description:
-      "Clean, contemporary designs that make your business look credible and professional.",
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
   },
-  {
-    icon: Zap,
-    title: "Fast Websites",
-    description:
-      "Optimized for speed so visitors stay engaged instead of leaving your site.",
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1],
+    },
   },
-  {
-    icon: Smartphone,
-    title: "Mobile Friendly",
-    description:
-      "Fully responsive layouts that look perfect on phones, tablets, and desktops.",
-  },
-  {
-    icon: Sparkles,
-    title: "Professional Experience",
-    description:
-      "Thoughtful interactions and polished visuals that build trust with your audience.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Clear Communication",
-    description:
-      "Simple and transparent communication throughout the entire project.",
-  },
-];
+};
 
 export default function WhyUs() {
-  return (
-    <section className="relative bg-black py-28 px-6">
-      <div className="mx-auto max-w-6xl">
+  const { t } = useLanguage();
 
-        {/* Header */}
-        <div className="text-center mb-20">
+  const reasons = [
+    { icon: Palette, ...t("whyUs.reasons.0") },
+    { icon: Zap, ...t("whyUs.reasons.1") },
+    { icon: Smartphone, ...t("whyUs.reasons.2") },
+    { icon: Sparkles, ...t("whyUs.reasons.3") },
+    { icon: MessageCircle, ...t("whyUs.reasons.4") },
+  ];
+
+  return (
+    <motion.section
+      className="relative bg-black py-28 px-6"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+    >
+      <motion.div className="mx-auto max-w-6xl" variants={containerVariants}>
+        <motion.div className="text-center mb-20" variants={itemVariants}>
           <span className="inline-flex items-center rounded-full border border-cyan-200/50 bg-cyan-200/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100 shadow-[0_0_24px_rgba(56,189,248,0.45)] transition-all duration-300 hover:border-cyan-200/80 hover:bg-cyan-200/25 hover:text-cyan-50 hover:shadow-[0_0_30px_rgba(56,189,248,0.6)]">
-            Why Choose Us
+            {t("whyUs.badge")}
           </span>
 
           <h2 className="mx-auto mt-4 max-w-3xl text-3xl md:text-4xl lg:text-5xl bg-gradient-to-br from-white via-cyan-100/90 to-cyan-200 bg-clip-text text-transparent">
-            Built for businesses that want to stand out
+            {t("whyUs.title")}
           </h2>
 
           <p className="mx-auto mt-5 max-w-xl leading-relaxed text-zinc-300">
-            We focus on what matters most: creating websites that make your
-            business look professional, fast, and trustworthy online.
+            {t("whyUs.description")}
           </p>
-        </div>
+        </motion.div>
 
-        {/* Grid */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+        >
           {reasons.map((r) => (
-            <div
+            <motion.div
               key={r.title}
+              variants={itemVariants}
               className="group relative overflow-hidden flex gap-4 items-start rounded-xl border border-white/10 bg-white/[0.03] p-5 transition-all duration-300 hover:-translate-y-[-2px] hover:border-cyan-200/50 hover:bg-cyan-200/14 hover:shadow-[0_0_28px_rgba(56,189,248,0.42)]"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-200/15 border border-cyan-200/30 transition-colors group-hover:bg-cyan-200/25">
@@ -74,11 +80,10 @@ export default function WhyUs() {
                   {r.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 }

@@ -9,6 +9,7 @@ import {
   CardHoverRevealMain,
 } from "@/components/ui/reveal-on-hover";
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/context/LanguageContext";
 
 const SLIDES = [
   {
@@ -64,11 +65,17 @@ const SLIDES = [
 ];
 
 export default function ScrollXCarouselDemo() {
+  const { t } = useLanguage();
+  const translatedSlides = SLIDES.map((slide, idx) => ({
+    ...slide,
+    ...t(`portfolio.slides.${idx}`),
+  }));
+
   return (
     <ScrollXCarousel>
       <ScrollXCarouselContainer className="overflow-x-auto py-3">
         <ScrollXCarouselWrap className="inline-flex gap-6 px-4">
-          {SLIDES.map((slide) => (
+                 {translatedSlides.map((slide) => (
             <CardHoverReveal
               key={slide.id}
               className="min-w-[70vw] sm:min-w-[58vw] md:min-w-[44vw] lg:min-w-[38vw] xl:min-w-[30vw] shadow-lg border rounded-xl"
@@ -82,7 +89,9 @@ export default function ScrollXCarouselDemo() {
               </CardHoverRevealMain>
               <CardHoverRevealContent className="space-y-3 rounded-2xl bg-[rgba(0,0,0,.5)] backdrop-blur-3xl p-4 max-h-[72%] overflow-y-auto">
                 <div className="space-y-2">
-                  <h3 className="text-sm text-white/80">Type</h3>
+                         <h3 className="text-sm text-white/80">
+                           {t("portfolio.typeLabel")}
+                         </h3>
                   <div className="flex flex-wrap gap-2">
                     <Badge className="capitalize rounded-full bg-indigo-500">
                       {slide.type}
@@ -90,7 +99,9 @@ export default function ScrollXCarouselDemo() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-sm text-white/80">Services</h3>
+                         <h3 className="text-sm text-white/80">
+                           {t("portfolio.servicesLabel")}
+                         </h3>
                   <div className="flex flex-wrap gap-2">
                     {slide.services.map((service) => (
                       <Badge

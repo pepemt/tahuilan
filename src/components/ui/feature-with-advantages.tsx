@@ -2,34 +2,7 @@ import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { GlowCard } from "@/components/ui/spotlight-card";
-
-const features = [
-  {
-    title: "Business Websites",
-    description:
-      "Professional websites that build trust and establish your business online.",
-  },
-  {
-    title: "Landing Pages",
-    description:
-      "High-converting landing pages designed to turn visitors into clients.",
-  },
-  {
-    title: "Portfolio Websites",
-    description:
-      "Showcase your work with a clean, modern, and credible portfolio.",
-  },
-  {
-    title: "Website Redesign",
-    description:
-      "Transform outdated websites into fast, modern, mobile-first experiences.",
-  },
-  {
-    title: "Performance Optimization",
-    description:
-      "Improve speed and Core Web Vitals so your site performs better.",
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const containerVariants = {
   hidden: {},
@@ -53,6 +26,9 @@ const itemVariants = {
 };
 
 function Feature() {
+  const { t } = useLanguage();
+  const features = t("serviceItems");
+
   return (
     <section className="w-full py-24 md:py-32">
       <div className="container mx-auto px-6">
@@ -65,17 +41,16 @@ function Feature() {
         >
           <motion.div variants={itemVariants}>
             <Badge className="inline-flex items-center rounded-full border border-cyan-200/50 bg-cyan-200/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100 shadow-[0_0_24px_rgba(56,189,248,0.45)] transition-all duration-300 hover:border-cyan-200/80 hover:bg-cyan-200/25 hover:text-cyan-50 hover:shadow-[0_0_30px_rgba(56,189,248,0.6)]">
-              Services
+              {t("services.badge")}
             </Badge>
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex max-w-2xl flex-col gap-3">
             <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white md:text-5xl">
-              Websites built for real businesses
+              {t("services.title")}
             </h2>
             <p className="text-base leading-7 text-white/60 md:text-lg">
-              Running a business is already hard. We make your website simple,
-              fast, and professional.
+              {t("services.description")}
             </p>
           </motion.div>
 

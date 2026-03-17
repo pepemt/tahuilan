@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 import { WebGLShader } from "@/components/ui/web-gl-shader";
 
 const containerVariants = {
@@ -27,6 +28,8 @@ const itemVariants = {
 };
 
 export default function DemoOne() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative flex min-h-[90vh] w-full items-center justify-center overflow-hidden px-4">
       <WebGLShader />
@@ -53,15 +56,14 @@ export default function DemoOne() {
                 variants={itemVariants}
                 className="text-balance text-4xl font-semibold tracking-[-0.03em] text-white sm:text-5xl md:text-6xl lg:text-7xl"
               >
-                Modern websites that make your business stand out
+                {t("hero.title")}
               </motion.h1>
 
               <motion.p
                 variants={itemVariants}
                 className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/65 sm:text-base md:text-lg"
               >
-                We create fast, modern websites that help your business look
-                professional, build trust, and attract more clients.
+                {t("hero.subtitle")}
               </motion.p>
 
               <motion.div
@@ -74,7 +76,7 @@ export default function DemoOne() {
                     <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400" />
                   </span>
                   <span className="text-xs font-medium text-green-400">
-                    Available for new projects
+                    {t("hero.badge")}
                   </span>
                 </div>
               </motion.div>
@@ -91,7 +93,7 @@ export default function DemoOne() {
                   className="inline-flex w-full justify-center sm:w-auto"
                 >
                   <span className="inline-flex w-full items-center justify-center rounded-full border border-white/15 bg-white/15 px-8 py-3 text-sm font-semibold text-white backdrop-blur-xl shadow-[0_14px_35px_-20px_rgba(255,255,255,0.45)] transition-all duration-300 hover:border-white/30 hover:bg-white/20 sm:w-auto">
-                    Request a Quote
+                    {t("hero.ctaPrimary")}
                   </span>
                 </motion.a>
 
@@ -102,7 +104,7 @@ export default function DemoOne() {
                   transition={{ duration: 0.2 }}
                   className="inline-flex w-full items-center justify-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-medium text-white/90 transition-all duration-300 hover:border-white/20 hover:bg-white/10 sm:w-auto"
                 >
-                  See Our Work
+                  {t("hero.ctaSecondary")}
                 </motion.a>
               </motion.div>
             </div>

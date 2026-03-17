@@ -1,6 +1,29 @@
+import { useLanguage } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
+
+const footerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
-    <footer className="relative bg-black border-t border-zinc-900 py-12 px-6">
+    <motion.footer
+      className="relative bg-black border-t border-zinc-900 py-12 px-6"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={footerVariants}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex flex-col items-center md:items-start gap-2">
@@ -8,7 +31,7 @@ export default function Footer() {
               tahuilan<span className="text-green-500">.</span>com
             </span>
             <p className="text-zinc-500 text-sm">
-              Modern websites for modern businesses.
+              {t("footer.tagline")}
             </p>
           </div>
 
@@ -17,36 +40,35 @@ export default function Footer() {
               href="#home"
               className="text-zinc-500 hover:text-white text-sm transition-colors"
             >
-              Home
+              {t("footer.home")}
             </a>
             <a
               href="#services"
               className="text-zinc-500 hover:text-white text-sm transition-colors"
             >
-              Services
+              {t("footer.services")}
             </a>
             <a
               href="#portfolio"
               className="text-zinc-500 hover:text-white text-sm transition-colors"
             >
-              Portfolio
+              {t("footer.portfolio")}
             </a>
             <a
               href="#contact"
               className="text-zinc-500 hover:text-white text-sm transition-colors"
             >
-              Contact
+              {t("footer.contact")}
             </a>
           </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-zinc-900 text-center">
           <p className="text-zinc-600 text-xs">
-            &copy; {new Date().getFullYear()} tahuilan.com. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} tahuilan.com. {t("footer.copyright")}
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
