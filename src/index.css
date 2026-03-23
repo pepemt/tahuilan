@@ -125,6 +125,8 @@
     }
   html {
     @apply font-sans scroll-smooth;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
     }
 }
 

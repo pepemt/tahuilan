@@ -65,7 +65,7 @@ export default function GymCoachPortfolioPage({ project }) {
   };
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-[#0a0a0a] text-white">
+    <main className="relative min-h-screen overflow-x-clip bg-[#0a0a0a] text-white">
       <div className="pointer-events-none fixed inset-0 z-0 hidden md:block">
         <div className="absolute right-0 top-0 h-full w-[min(64vw,700px)] overflow-hidden">
           <motion.div

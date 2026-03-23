@@ -21,7 +21,7 @@ export default function ScrollXCarouselDemo() {
 
   return (
     <ScrollXCarousel>
-      <ScrollXCarouselContainer className="overflow-x-auto py-3">
+      <ScrollXCarouselContainer className="overflow-x-auto overscroll-x-contain py-3">
         <ScrollXCarouselWrap className="inline-flex gap-6 px-4">
           {translatedSlides.map((slide) => {
             const isExternal = Boolean(
