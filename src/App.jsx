@@ -12,6 +12,7 @@ import { useLanguage } from './context/LanguageContext';
 import { portfolioProjects } from '@/data/portfolioProjects';
 import PortfolioCaseStudy from './pages/PortfolioCaseStudy';
 import GymCoachPortfolioPage from './pages/portfolio/gym-coach';
+import ElysiumPage from './pages/elysium';
 
 const portfolioProjectRoutes = {
   "gym-coach": GymCoachPortfolioPage,
@@ -53,6 +54,10 @@ function App() {
       slug,
     };
   }, [routeMatch, translatedProjects]);
+
+  if (normalizedPath === "/elysium" || normalizedPath === "/coach-online") {
+    return <ElysiumPage />;
+  }
 
   if (activeProject) {
     const pageComponent = portfolioProjectRoutes[activeProject.slug];
