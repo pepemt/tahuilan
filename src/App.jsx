@@ -55,7 +55,7 @@ function App() {
     };
   }, [routeMatch, translatedProjects]);
 
-  if (normalizedPath === "/elysium" || normalizedPath === "/coach-online") {
+  if (normalizedPath.toLowerCase() === "/elysium") {
     return <ElysiumPage />;
   }
 
