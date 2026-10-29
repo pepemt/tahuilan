@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import "@fontsource/bebas-neue";
 import "@fontsource/unifrakturcook/700.css";
@@ -81,7 +80,7 @@ const SCIENCE = [
 ];
 
 const STEPS = [
-  { title: "Aplicas", text: "Llenas el formulario de abajo. Toma dos minutos." },
+  { title: "Escribes", text: "Mándale mensaje a Swagger por WhatsApp o redes." },
   { title: "Diagnóstico", text: "Swagger revisa tu caso y te contacta para conocerte." },
   { title: "Tu plan", text: "Recibes entrenamiento y nutrición hechos para ti." },
   { title: "Evolución", text: "Check-ins cada semana y ajustes hasta llegar a tu meta." },
@@ -116,8 +115,6 @@ const FAQS = [
     a: "Sí. El programa se adapta al material que tengas, desde un gym completo hasta unas mancuernas en casa.",
   },
 ];
-
-const DAYS_OPTIONS = ["2 días", "3 días", "4 días", "5 o más días"];
 
 const display = { fontFamily: "'Bebas Neue', 'Geist Variable', sans-serif" };
 const gothic = { fontFamily: "'UnifrakturCook', serif" };
@@ -156,9 +153,15 @@ function Icon({ name, className = "h-5 w-5" }) {
 }
 
 const SOCIALS = [
-  { name: "whatsapp", label: "WhatsApp", href: `https://wa.me/${CONFIG.whatsapp}` },
-  { name: "instagram", label: "Instagram", href: CONFIG.instagram },
-  { name: "tiktok", label: "TikTok", href: CONFIG.tiktok },
+  {
+    name: "whatsapp",
+    label: "WhatsApp",
+    handle: "+52 81 2599 2035",
+    cta: "Escríbele ahora",
+    href: `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(`Hola ${CONFIG.coach}, quiero entrar a ${CONFIG.program}`)}`,
+  },
+  { name: "instagram", label: "Instagram", handle: "@sswagger.999", cta: "Ver perfil", href: CONFIG.instagram },
+  { name: "tiktok", label: "TikTok", handle: "@sswagger.999", cta: "Ver videos", href: CONFIG.tiktok },
 ];
 
 /** Botones redondos con las redes de Swagger. */
@@ -298,252 +301,6 @@ function StoryImages({ chapter }) {
         </div>
       ))}
     </div>
-  );
-}
-
-function Field({ label, required, hint, children }) {
-  return (
-    <div className="mt-6">
-      <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.16em] text-[#b3a9a3]">
-        {label} {required && <span className="text-[#e3192b]">*</span>}
-      </label>
-      {children}
-      {hint && <p className="mt-1.5 text-xs text-[#6e6462]">{hint}</p>}
-    </div>
-  );
-}
-
-const inputCls =
-  "w-full rounded-sm border border-white/10 bg-black/40 px-4 py-3 text-[#f5efe9] placeholder:text-[#6e6462] transition-colors focus:border-[#e3192b] focus:outline-none";
-
-const STEP_REQUIRED = [
-  ["name", "age", "phone"],
-  ["goal", "days", "commitment"],
-  ["why", "budget", "consent"],
-];
-const STEP_NAMES = ["Quién eres", "Tu meta", "Tu compromiso"];
-
-function ApplyForm() {
-  const [step, setStep] = useState(0);
-  const [error, setError] = useState("");
-  const [sent, setSent] = useState(false);
-  const [data, setData] = useState({
-    name: "",
-    age: "",
-    phone: "",
-    city: "",
-    goal: "",
-    days: "",
-    commitment: "",
-    why: "",
-    budget: "",
-    consent: false,
-  });
-
-  const set = (key) => (e) =>
-    setData((d) => ({
-      ...d,
-      [key]: e.target.type === "checkbox" ? e.target.checked : e.target.value,
-    }));
-
-  const validStep = () => STEP_REQUIRED[step].every((key) => Boolean(data[key]));
-
-  const next = () => {
-    if (!validStep()) {
-      setError("Llena los campos marcados con * para seguir.");
-      return;
-    }
-    setError("");
-    setStep((s) => s + 1);
-  };
-
-  const submit = (e) => {
-    e.preventDefault();
-    if (!validStep()) {
-      setError("Llena los campos marcados con * y acepta el aviso de privacidad.");
-      return;
-    }
-    const message = [
-      `Hola ${CONFIG.coach}, quiero entrar a ${CONFIG.program}.`,
-      "",
-      `Nombre: ${data.name}`,
-      `Edad: ${data.age}`,
-      `Teléfono: ${data.phone}`,
-      data.city && `Ciudad: ${data.city}`,
-      "",
-      `Meta: ${data.goal}`,
-      `Días disponibles: ${data.days}`,
-      `Compromiso: ${data.commitment}/10`,
-      "",
-      `Por qué ahora: ${data.why}`,
-      `Inversión mensual: ${data.budget}`,
-    ]
-      .filter((line) => line !== false)
-      .join("\n");
-    window.open(
-      `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
-    setSent(true);
-  };
-
-  if (sent) {
-    return (
-      <div className="rounded-sm border border-[#e3192b]/40 bg-[#e3192b]/[.06] p-8 text-center">
-        <p className="text-5xl text-[#e3192b]" style={gothic}>
-          E
-        </p>
-        <h3 className="mt-4 text-4xl uppercase" style={display}>
-          Bienvenido a la arena, {data.name}
-        </h3>
-        <p className="mx-auto mt-3 max-w-[44ch] text-[#b3a9a3]">
-          Se abrió WhatsApp con tu solicitud. Mándala y {CONFIG.coach} te responde personalmente.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <form
-      onSubmit={submit}
-      noValidate
-      className="rounded-sm border border-white/10 bg-[#110d0d]/80 p-6 backdrop-blur md:p-9"
-    >
-      <div className="flex gap-2">
-        {STEP_NAMES.map((name, i) => (
-          <div key={name} className="flex-1">
-            <div
-              className={`h-1 rounded-full transition-colors duration-300 ${i <= step ? "bg-[#e3192b]" : "bg-white/10"}`}
-            />
-            <p
-              className={`mt-2 text-[10px] font-bold uppercase tracking-[0.18em] ${i === step ? "text-[#f5efe9]" : "text-[#6e6462]"}`}
-            >
-              {i + 1}. {name}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {step === 0 && (
-        <div className="grid gap-x-5 sm:grid-cols-2">
-          <Field label="Nombre" required>
-            <input className={inputCls} value={data.name} onChange={set("name")} placeholder="¿Cómo te llamas?" />
-          </Field>
-          <Field label="Edad" required>
-            <input className={inputCls} type="number" min="14" value={data.age} onChange={set("age")} placeholder="20" />
-          </Field>
-          <Field label="WhatsApp" required>
-            <input className={inputCls} type="tel" value={data.phone} onChange={set("phone")} placeholder="55 1234 5678" />
-          </Field>
-          <Field label="Ciudad">
-            <input className={inputCls} value={data.city} onChange={set("city")} placeholder="¿Desde dónde entrenas?" />
-          </Field>
-        </div>
-      )}
-
-      {step === 1 && (
-        <div>
-          <Field label="¿Qué quieres lograr?" required>
-            <textarea
-              className={`${inputCls} min-h-[110px] resize-y`}
-              value={data.goal}
-              onChange={set("goal")}
-              placeholder="Ganar músculo, bajar grasa, prepararme para competir…"
-            />
-          </Field>
-          <Field label="¿Cuántos días puedes entrenar?" required>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-              {DAYS_OPTIONS.map((o) => (
-                <button
-                  type="button"
-                  key={o}
-                  onClick={() => setData((d) => ({ ...d, days: o }))}
-                  className={`rounded-sm border px-3 py-3 text-sm font-semibold transition-colors ${
-                    data.days === o
-                      ? "border-[#e3192b] bg-[#e3192b] text-white"
-                      : "border-white/10 text-[#b3a9a3] hover:border-white/30"
-                  }`}
-                >
-                  {o}
-                </button>
-              ))}
-            </div>
-          </Field>
-          <Field label={`Nivel de compromiso: ${data.commitment || "–"}/10`} required>
-            <input
-              type="range"
-              min="1"
-              max="10"
-              value={data.commitment || 5}
-              onChange={set("commitment")}
-              className="w-full accent-[#e3192b]"
-            />
-          </Field>
-        </div>
-      )}
-
-      {step === 2 && (
-        <div>
-          <Field label="¿Por qué ahora?" required>
-            <textarea
-              className={`${inputCls} min-h-[110px] resize-y`}
-              value={data.why}
-              onChange={set("why")}
-              placeholder="Cuéntame qué te motivó a dar el paso"
-            />
-          </Field>
-          <Field
-            label="¿Cuánto puedes invertir al mes?"
-            required
-            hint="Una cifra aproximada ayuda a proponerte el plan correcto."
-          >
-            <input className={inputCls} value={data.budget} onChange={set("budget")} placeholder="$ MXN" />
-          </Field>
-          <label className="mt-6 flex gap-3 text-xs leading-relaxed text-[#6e6462]">
-            <input
-              type="checkbox"
-              checked={data.consent}
-              onChange={set("consent")}
-              className="mt-0.5 h-4 w-4 flex-none accent-[#e3192b]"
-            />
-            Acepto que mis datos se usen solo para responder esta solicitud.
-          </label>
-        </div>
-      )}
-
-      {error && (
-        <p className="mt-6 rounded-sm border-l-[3px] border-[#e3192b] bg-[#e3192b]/10 px-4 py-3 text-sm text-[#ff8a94]">
-          {error}
-        </p>
-      )}
-
-      <div className="mt-8 flex justify-between gap-3">
-        {step > 0 ? (
-          <button
-            type="button"
-            className={btnGhost}
-            onClick={() => {
-              setError("");
-              setStep((s) => s - 1);
-            }}
-          >
-            Atrás
-          </button>
-        ) : (
-          <span />
-        )}
-        {step < 2 ? (
-          <button type="button" className={btnRed} onClick={next}>
-            Siguiente
-          </button>
-        ) : (
-          <button type="submit" className={btnRed}>
-            Enviar solicitud
-          </button>
-        )}
-      </div>
-    </form>
   );
 }
 
@@ -836,26 +593,51 @@ export default function ElysiumPage() {
               className="absolute inset-0"
               style={{
                 background:
-                  "radial-gradient(ellipse 50% 60% at 20% 50%, rgba(227,25,43,.18), transparent 70%)",
+                  "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(227,25,43,.18), transparent 70%)",
               }}
             />
-            <div className={`${wrap} relative grid items-start gap-12 md:grid-cols-[.8fr_1.2fr] md:gap-16`}>
-              <div className="md:sticky md:top-24">
-                <img src={`${IMG}/logo.jpg`} alt={`Logo de ${CONFIG.program}`} className="w-40 [mask-image:radial-gradient(closest-side,#000_70%,transparent)] md:w-56" />
-                <p className={`${eyebrow} mt-8`}>Lugares limitados</p>
-                <h2 className={`${h2} mt-4`} style={display}>
-                  Entra a la arena
-                </h2>
-                <p className="mt-5 max-w-[38ch] text-[#b3a9a3]">
-                  {CONFIG.coach} trabaja con pocos alumnos para darle a cada uno atención real. Cuéntale
-                  tu caso y te contesta personalmente.
-                </p>
-                <p className="mt-8 text-[11px] font-bold uppercase tracking-[0.2em] text-[#6e6462]">
-                  ¿Dudas? Escríbele directo
-                </p>
-                <SocialLinks className="mt-3" />
+            <div className={`${wrap} relative text-center`}>
+              <img
+                src={`${IMG}/logo.jpg`}
+                alt={`Logo de ${CONFIG.program}`}
+                className="mx-auto w-40 [mask-image:radial-gradient(closest-side,#000_70%,transparent)] md:w-56"
+              />
+              <p className={`${eyebrow} mt-8`}>Lugares limitados</p>
+              <h2 className={`${h2} mt-4`} style={display}>
+                Entra a la arena
+              </h2>
+              <p className="mx-auto mt-5 max-w-[46ch] text-[#b3a9a3]">
+                {CONFIG.coach} trabaja con pocos alumnos para darle a cada uno atención real. Escríbele
+                por donde prefieras y te contesta personalmente.
+              </p>
+              <div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-3">
+                {SOCIALS.map((s, i) => (
+                  <motion.a
+                    key={s.name}
+                    {...reveal}
+                    transition={{ ...reveal.transition, delay: i * 0.1 }}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group flex flex-col items-center rounded-sm border p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${
+                      s.name === "whatsapp"
+                        ? "border-[#e3192b] bg-[#e3192b]/15 shadow-[0_0_40px_rgba(227,25,43,.25)] hover:bg-[#e3192b]/25"
+                        : "border-white/10 bg-[#070606]/70 hover:border-[#e3192b]/60 hover:shadow-[0_10px_40px_-10px_rgba(227,25,43,.45)]"
+                    }`}
+                  >
+                    <span className="flex h-20 w-20 items-center justify-center rounded-full border border-white/15 bg-black/40 text-[#f5efe9] transition-colors group-hover:border-[#e3192b] group-hover:bg-[#e3192b]">
+                      <Icon name={s.name} className="h-9 w-9" />
+                    </span>
+                    <span className="mt-6 text-4xl uppercase" style={display}>
+                      {s.label}
+                    </span>
+                    <span className="mt-1 text-sm text-[#b3a9a3]">{s.handle}</span>
+                    <span className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-[#e3192b] group-hover:text-[#ff2d3d]">
+                      {s.cta} →
+                    </span>
+                  </motion.a>
+                ))}
               </div>
-              <ApplyForm />
             </div>
           </section>
 
@@ -893,8 +675,16 @@ export default function ElysiumPage() {
                 · Coaching by {CONFIG.coach} · © {new Date().getFullYear()}
               </span>
               <SocialLinks />
-              <a href="/" className="hover:text-[#f5efe9]">
-                Sitio por Tahuilan
+              <a
+                href="https://tahuilan.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group uppercase tracking-[0.18em]"
+              >
+                Created by{" "}
+                <span className="font-bold text-[#f5efe9] transition-colors group-hover:text-[#ff2d3d]">
+                  tahuilan.com
+                </span>
               </a>
             </div>
           </footer>
