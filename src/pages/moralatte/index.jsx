@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { ArrowUpRight, Clock, MapPin } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, Clock, MapPin, X } from "lucide-react";
 import "@fontsource/playfair-display/400.css";
 import "@fontsource/playfair-display/700.css";
 import "@fontsource/playfair-display/400-italic.css";
@@ -17,6 +18,8 @@ const CONFIG = {
   hours: "",
   instagram: "",
   maps: "https://www.google.com/maps/search/?api=1&query=Moralatte+Calle+Kelvin+CDMX",
+  // Burbuja de "sitio demo" abajo a la izquierda. false cuando sea el sitio oficial.
+  demo: true,
 };
 
 const IMG = "/images/moralatte";
@@ -134,6 +137,47 @@ function MenuBoard({ section, index }) {
         </ul>
       </div>
     </motion.article>
+  );
+}
+
+/** Aviso flotante de que la página es una demo de Tahuilan. Se puede cerrar. */
+function DemoBadge() {
+  const [open, setOpen] = useState(true);
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 16 }}
+          transition={{ duration: 0.4, delay: 1.2 }}
+          className="fixed bottom-4 left-4 z-50 flex items-center gap-2 rounded-full border bg-white/90 py-1.5 pl-3 pr-1.5 text-xs shadow-lg backdrop-blur"
+          style={{ borderColor: "rgba(107,78,56,.18)", color: C.muted }}
+        >
+          <span className="h-2 w-2 rounded-full" style={{ background: C.sage }} />
+          <span>
+            Sitio demo por{" "}
+            <a
+              href="https://tahuilan.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold underline-offset-2 hover:underline"
+              style={{ color: C.green }}
+            >
+              tahuilan.com
+            </a>
+          </span>
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            aria-label="Cerrar aviso"
+            className="flex h-6 w-6 items-center justify-center rounded-full transition-colors hover:bg-black/5"
+          >
+            <X className="h-3.5 w-3.5" />
+          </button>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 
@@ -516,6 +560,8 @@ export default function MoralattePage() {
           </a>
         </div>
       </footer>
+
+      {CONFIG.demo && <DemoBadge />}
     </main>
   );
 }
