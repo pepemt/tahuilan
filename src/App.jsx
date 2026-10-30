@@ -13,6 +13,7 @@ import { portfolioProjects } from '@/data/portfolioProjects';
 import PortfolioCaseStudy from './pages/PortfolioCaseStudy';
 import GymCoachPortfolioPage from './pages/portfolio/gym-coach';
 import ElysiumPage from './pages/elysium';
+import ElysiumLinksPage from './pages/elysium/links';
 
 const portfolioProjectRoutes = {
   "gym-coach": GymCoachPortfolioPage,
@@ -57,6 +58,10 @@ function App() {
 
   if (normalizedPath.toLowerCase() === "/elysium") {
     return <ElysiumPage />;
+  }
+
+  if (normalizedPath.toLowerCase() === "/elysium/links") {
+    return <ElysiumLinksPage />;
   }
 
   if (activeProject) {
