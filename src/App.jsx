@@ -15,6 +15,7 @@ import GymCoachPortfolioPage from './pages/portfolio/gym-coach';
 import ElysiumPage from './pages/elysium';
 import ElysiumLinksPage from './pages/elysium/links';
 import MoralattePage from './pages/moralatte';
+import DelicattoPage from './pages/delicatto';
 
 const portfolioProjectRoutes = {
   "gym-coach": GymCoachPortfolioPage,
@@ -67,6 +68,10 @@ function App() {
 
   if (normalizedPath.toLowerCase() === "/moralatte") {
     return <MoralattePage />;
+  }
+
+  if (normalizedPath.toLowerCase() === "/delicatto") {
+    return <DelicattoPage />;
   }
 
   if (activeProject) {
