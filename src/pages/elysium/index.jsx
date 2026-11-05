@@ -4,7 +4,7 @@ import { CONFIG, IMG, SOCIALS, display, gothic } from "./shared";
 
 /**
  * Elysium · programa de coaching online de Swagger.
- * Links, WhatsApp y fuentes viven en ./shared.jsx; los textos de la página, aquí abajo.
+ * Links y fuentes viven en ./shared.jsx; los textos de la página, aquí abajo.
  */
 const MARQUEE = [
   "Entrena con propósito",
@@ -67,7 +67,7 @@ const SCIENCE = [
 ];
 
 const STEPS = [
-  { title: "Escribes", text: "Mándale mensaje a Swagger por WhatsApp o redes." },
+  { title: "Escribes", text: "Mándale mensaje a Swagger por sus redes." },
   { title: "Diagnóstico", text: "Swagger revisa tu caso y te contacta para conocerte." },
   { title: "Tu plan", text: "Recibes entrenamiento y nutrición hechos para ti." },
   { title: "Evolución", text: "Check-ins cada semana y ajustes hasta llegar a tu meta." },
@@ -565,7 +565,7 @@ export default function ElysiumPage() {
                 {CONFIG.coach} trabaja con pocos alumnos para darle a cada uno atención real. Escríbele
                 por donde prefieras y te contesta personalmente.
               </p>
-              <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {SOCIALS.map((s, i) => (
                   <motion.a
                     key={s.name}
@@ -575,7 +575,7 @@ export default function ElysiumPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`group flex flex-col items-center rounded-sm border p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${
-                      s.name === "whatsapp"
+                      i === 0
                         ? "border-[#e3192b] bg-[#e3192b]/15 shadow-[0_0_40px_rgba(227,25,43,.25)] hover:bg-[#e3192b]/25"
                         : "border-white/10 bg-[#070606]/70 hover:border-[#e3192b]/60 hover:shadow-[0_10px_40px_-10px_rgba(227,25,43,.45)]"
                     }`}
@@ -645,15 +645,6 @@ export default function ElysiumPage() {
           </footer>
         </div>
       </div>
-      <a
-        href={`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(`Hola ${CONFIG.coach}, quiero info de ${CONFIG.program}`)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Escribir por WhatsApp"
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25d366] text-white shadow-[0_8px_30px_rgba(0,0,0,.5)] transition-transform hover:scale-110"
-      >
-        <Icon name="whatsapp" className="h-7 w-7" />
-      </a>
     </main>
   );
 }
